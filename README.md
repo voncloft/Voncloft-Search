@@ -27,6 +27,11 @@ I removed the logo, feel free to put whatever you want in there.
 
 Known issues I may/maynot fix - if you find any or want to contribute you are more than welcome to do so.
 
+For httpd.conf put your folders that you plan on searching and keeping tabs on in the alias section.
+
+Also I have hard coded the IP 192.168.1.1 since it is my own router so you may need to tweak that yourself.
+
+
 1) Unable to play *some* videos in browser
 
 2) Searching .folder names can crash the program or have it go into an infinite loop.
