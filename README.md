@@ -26,3 +26,4 @@ Maria-db
 PHP
 APACHE
 LINUX
+fortune-mod (if you want the random quotes)
