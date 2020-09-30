@@ -9,6 +9,7 @@ in scripts directory run "test" to build your database and import file locations
 
 In the php files - and some bash scripts the unsername and password, you will need to be mysql username and password specific. 
 
+___________________________
 
 
 Prerequisites:
@@ -21,25 +22,27 @@ Load your httpd.conf apache file - and encorporate the new directory/website.
 
 Load php modules in httpd.conf as well
 
+For httpd.conf put your folders that you plan on searching and keeping tabs on in the alias section.
+
+Also I have hard coded the IP 192.168.1.1 since it is my own router so you may need to tweak that yourself.
+
 Start Apache, php, and mysql
 
-
+__________________________________________________
 
 
 Dependencies: Maria-db, PHP, APACHE, LINUX, fortune-mod (if you want the random quotes)
 
 I removed the logo, feel free to put whatever you want in there.
 
-
+_________________________________________________
 
 
 
 
 Known issues I may/maynot fix - if you find any or want to contribute you are more than welcome to do so.
 
-For httpd.conf put your folders that you plan on searching and keeping tabs on in the alias section.
 
-Also I have hard coded the IP 192.168.1.1 since it is my own router so you may need to tweak that yourself.
 
 
 1) Unable to play *some* videos in browser
