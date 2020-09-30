@@ -17,7 +17,7 @@ The folder voogle needs to be placed in /media/Websites
 
 Load your httpd.conf apache file - and encorporate the new directory/website.
 
-Load php momdules in httpd.conf as well
+Load php modules in httpd.conf as well
 
 Start Apache, php, and mysql
 
