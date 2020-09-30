@@ -21,6 +21,4 @@ Load php modules in httpd.conf as well
 
 Start Apache, php, and mysql
 
-Dependencies:
-
-Maria-db,PHP,APACHE,LINUX,fortune-mod (if you want the random quotes)
+Dependencies: Maria-db, PHP, APACHE, LINUX, fortune-mod (if you want the random quotes)
