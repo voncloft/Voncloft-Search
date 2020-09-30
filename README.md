@@ -11,7 +11,7 @@ In the php files - and some bash scripts the unsername and password, you will ne
 
 Prerequisites:
 
-(I am assuming you have experience with Linux, Apache, mysql, and PHP)
+(I am assuming you have experience with Linux, Apache, mysql, and PHP or LAMP servers)
 
 The folder voogle needs to be placed in /media/Websites
 
