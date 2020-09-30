@@ -25,7 +25,7 @@ Dependencies: Maria-db, PHP, APACHE, LINUX, fortune-mod (if you want the random 
 
 I removed the logo, feel free to put whatever you want in there.
 
-Known issues I may/maynot fix - if you find any or want to contribute you are more than welcome.
+Known issues I may/maynot fix - if you find any or want to contribute you are more than welcome to do so.
 
 1) Unable to play *some* videos in browser
 
