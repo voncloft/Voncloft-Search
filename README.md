@@ -24,7 +24,7 @@ Load php modules in httpd.conf as well
 
 For httpd.conf put your folders that you plan on searching and keeping tabs on in the alias section.
 
-Also I have hard coded the IP 192.168.1.1 since it is my own router so you may need to tweak that yourself.
+Also I have hard coded the IP 192.168.1.1 in the search return results - since it is my own router so you may need to tweak that yourself.
 
 Start Apache, php, and mysql
 
