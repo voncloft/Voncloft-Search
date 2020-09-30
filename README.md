@@ -9,6 +9,8 @@ in scripts directory run "test" to build your database and import file locations
 
 In the php files - and some bash scripts the unsername and password, you will need to be mysql username and password specific. 
 
+
+
 Prerequisites:
 
 (I am assuming you have experience with Linux, Apache, mysql, and PHP or LAMP servers)
@@ -21,9 +23,17 @@ Load php modules in httpd.conf as well
 
 Start Apache, php, and mysql
 
+
+
+
 Dependencies: Maria-db, PHP, APACHE, LINUX, fortune-mod (if you want the random quotes)
 
 I removed the logo, feel free to put whatever you want in there.
+
+
+
+
+
 
 Known issues I may/maynot fix - if you find any or want to contribute you are more than welcome to do so.
 
