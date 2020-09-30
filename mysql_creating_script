@@ -1,0 +1,227 @@
+-- MariaDB dump 10.17  Distrib 10.5.4-MariaDB, for Linux (x86_64)
+--
+-- Host: localhost    Database: Intranet
+-- ------------------------------------------------------
+-- Server version	10.5.4-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Dumping routines for database 'Intranet'
+--
+
+--
+-- Table structure for table `Default_Locations`
+--
+
+DROP TABLE IF EXISTS `Default_Locations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Default_Locations` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Path` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Default_Locations`
+--
+
+LOCK TABLES `Default_Locations` WRITE;
+/*!40000 ALTER TABLE `Default_Locations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Default_Locations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Filenames`
+--
+
+DROP TABLE IF EXISTS `Filenames`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Filenames` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Type` text NOT NULL,
+  `filename` text DEFAULT NULL,
+  `location` text DEFAULT NULL,
+  `description` longtext NOT NULL,
+  `sizeinbytes` bigint(200) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=182348277 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Filenames`
+--
+
+LOCK TABLES `Filenames` WRITE;
+/*!40000 ALTER TABLE `Filenames` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Filenames` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Search_History`
+--
+
+DROP TABLE IF EXISTS `Search_History`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Search_History` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Search_query` text DEFAULT NULL,
+  `Date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2073 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Search_History`
+--
+
+LOCK TABLES `Search_History` WRITE;
+/*!40000 ALTER TABLE `Search_History` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Search_History` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Updates`
+--
+
+DROP TABLE IF EXISTS `Updates`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Updates` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Date` tinytext DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2435 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Updates`
+--
+
+LOCK TABLES `Updates` WRITE;
+/*!40000 ALTER TABLE `Updates` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Updates` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `keywords`
+--
+
+DROP TABLE IF EXISTS `keywords`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `keywords` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `keyword` tinytext NOT NULL,
+  `command` tinytext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `keywords`
+--
+
+LOCK TABLES `keywords` WRITE;
+/*!40000 ALTER TABLE `keywords` DISABLE KEYS */;
+/*!40000 ALTER TABLE `keywords` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `options`
+--
+
+DROP TABLE IF EXISTS `options`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `options` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `search_term` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `options`
+--
+
+LOCK TABLES `options` WRITE;
+/*!40000 ALTER TABLE `options` DISABLE KEYS */;
+INSERT INTO `options` VALUES (1,'Is Exactly'),(2,'Contains');
+/*!40000 ALTER TABLE `options` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `special`
+--
+
+DROP TABLE IF EXISTS `special`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `special` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `expression` tinytext DEFAULT NULL,
+  `value` tinytext DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `special`
+--
+
+LOCK TABLES `special` WRITE;
+/*!40000 ALTER TABLE `special` DISABLE KEYS */;
+/*!40000 ALTER TABLE `special` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `types`
+--
+
+DROP TABLE IF EXISTS `types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `types` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Type` text NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `types`
+--
+
+LOCK TABLES `types` WRITE;
+/*!40000 ALTER TABLE `types` DISABLE KEYS */;
+/*!40000 ALTER TABLE `types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping events for database 'Intranet'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-09-30  7:39:50

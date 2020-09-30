@@ -1,0 +1,36 @@
+<html>
+<body>
+
+<form action="/php/search.php" method="post">
+Name: <input type="text" name="name"><input type="text" name="options"><br>
+<? php
+$servername = "localhost";
+$username = "root";
+$password = "cnx7b8z2";
+$dbname="Intranet";
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if (mysqli_connect_errno())
+{
+  trigger_error('Database connection failed: ');
+}
+else
+{
+sql="select * from types;
+    $result=mysqli_query($conn, $sql);
+    $options='<select name="item">';
+    while($row=mysqli_fetch_array($result))
+    {
+      $options .= '<option value="'.$row['ID'].'">'.$row['Names'].'</option>';
+     }
+    $options .= '</select>';
+    echo $options;
+}
+?>
+<a href = "http://192.168.1.1:100/php/configuration.html">Configuration</a>
+<br>
+<input type="submit">
+</form>
+
+</body>
+</html> 

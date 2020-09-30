@@ -1,0 +1,4 @@
+<?php
+$location=$_POST["location"];
+
+?>
