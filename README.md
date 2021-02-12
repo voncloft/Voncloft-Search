@@ -1,4 +1,7 @@
 # Voncloft-Search
+
+This was hard programmed to reside in /media/Websites/voogle
+
 A LAMP search engine for server or desktop.
 
 run mysql_script_update to create database 
