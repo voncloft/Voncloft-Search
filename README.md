@@ -5,6 +5,10 @@ run mysql_script_update to create database
 
 mysql -u yourusername -p yourpassword yourdatabase < mysql_script_update
 
+change username and passwrods in the php scripts to your mysql criteria on your rig
+
+Add locations in your mysql table provided after the script was ran.
+
 in scripts directory run "test" to build your database and import file locations/attributes. Add to cron job if you like.
 
 In the php files - and some bash scripts the unsername and password, you will need to be mysql username and password specific. 
