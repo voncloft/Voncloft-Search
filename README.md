@@ -44,6 +44,7 @@ Dependencies: Maria-db, PHP, APACHE, LINUX, fortune-mod (if you want the random 
 
 I removed the logo, feel free to put whatever you want in there.
 
+For continuous monitoring - you will need inotify-tools
 _________________________________________________
 
 
