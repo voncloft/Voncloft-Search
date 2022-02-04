@@ -22,6 +22,9 @@ case $extension in
 	sh)
 		mysql_ext="Shell"
 		;;
+	php)
+		mysql_ext="Php"
+		;;
 	*)
 		mysql_ext="Misc"
 esac
