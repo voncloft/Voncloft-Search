@@ -16,6 +16,12 @@ case $extension in
 	mkv|mp4|avi)
 		mysql_ext="Video"
 		;;
+	html)
+		mysql_ext="Hypertext"
+		;;
+	sh)
+		mysql_ext="Shell"
+		;;
 	*)
 		mysql_ext="Misc"
 esac
@@ -25,3 +31,4 @@ command="insert into Filenames(filename,location,type,description) Values ('${fi
 echo $command
 mysql -u${username} -p${password} --database="Intranet" --execute="$command;"
 echo "added $final_mysql_location to database"
+echo "$command" >> /var/log/old/search_engine_events
