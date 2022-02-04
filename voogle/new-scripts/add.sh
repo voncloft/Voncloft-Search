@@ -4,7 +4,6 @@ new_file=$1
 filename=$(basename "${new_file}")
 location="$new_file"
 extension="${filename##*.}"
-mysql_path_pre="http://voncloft.com:90/all"
 final_mysql_location="$mysql_path_pre$location"
 case $extension in
 	txt)
