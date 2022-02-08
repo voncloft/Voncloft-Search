@@ -187,7 +187,7 @@ while ($row = mysqli_fetch_array($result))
         $url=str_replace(")", "%29", $url);
         $url=str_replace("-", "%2D", $url);
         $url=str_replace(" ", "%20", $url);
-        $file2=str_replace("http://192.168.1.1/all","",$row["location"]);
+        $file2=str_replace("http://192.168.1.1:90/all","",$row["location"]);
         //$reformated="'".$row["location"]."'";
         //list($width, $height) = getimagesize($row["location"]);
         list($width, $height) = getimagesize($url);
@@ -243,7 +243,7 @@ while ($row = mysqli_fetch_array($result))
         $url=str_replace(")", "%29", $url);
         $url=str_replace("-", "%2D", $url);
         $url=str_replace(" ", "%20", $url);
-        $file2=str_replace("http://192.168.1.1/all","",$row["location"]);
+        $file2=str_replace("http://192.168.1.1:90/all","",$row["location"]);
         //echo $file2;        
         if($row["Type"]=="text" || $row["Type"]=="command")
         {
