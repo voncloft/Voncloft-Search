@@ -20,10 +20,10 @@ do
 
     	if [[ $evt == "MOVED_FROM" ]];then
         	original_file="$file"
-    	else
+    	elif [[ $evt == "MOVED_TO" ]];then
         	new_file="$file"
         	sh /media/Websites/voogle/new-scripts/update.sh "$original_file" "$new_file"
-		echo "update Filenames set location='$new_file' where location = '$original_file'"
+		#echo "update Filenames set location='$new_file' where location = '$original_file'"
     	fi
 	done &
 done
