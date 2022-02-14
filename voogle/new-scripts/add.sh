@@ -24,6 +24,9 @@ case $extension in
 	php)
 		mysql_ext="php"
 		;;
+	log)
+		mysql_ext="log"
+		;;
 	*)
 		mysql_ext="misc"
 esac
