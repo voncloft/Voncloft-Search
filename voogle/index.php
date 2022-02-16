@@ -19,7 +19,6 @@
 <img src="images/logo.png" height="300" width="300">
 <br>
 <br>
-
 Random quote:
 <?php 
 
@@ -30,15 +29,8 @@ echo "$output";
 <br>
 <?php
 session_start();
-
+include_once 'include/dbconnect.php';
 $sql2="testing what what";
-
-$servername = "localhost";
-$username = "your_username";
-$password = "password";
-$dbname="Intranet";
-$conn = new mysqli($servername, $username, $password, $dbname);
-
 
 if (mysqli_connect_errno())
 {
@@ -79,8 +71,6 @@ $_SESSION["phpvar"] = "1as";
 <br>
 
 <a href = "html/configuration.html">Configuration</a>
-
-
 </center>
 </form>
 <center>
@@ -98,12 +88,9 @@ $final=mysqli_fetch_row($abc);
 echo "Last update was: ".$final[0];
 //$output = shell_exec('fortune | cowsay -f tux');
 //echo "<pre>$output</pre>";
-
-
+echo "<br><a href=stats.php>Database Statistics</a>";
 echo "<br><a href=search_stats.php>Search Statistics</a>";
-
-
-echo "<br><br>Version 3.3<br>Last Update Applied: 08-02-2019 02:50:00 AM";
+echo "<br><br>Version 3<br>Last Update Applied: 02-11-2019 08:50:00 PM";
 ?>
 </center>
 </body>

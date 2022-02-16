@@ -1,20 +1,6 @@
 <?php
 
-$servername = "127.0.0.1";
-$username = "your_username";
-
-$password = "password";
-
-$dbname = "Intranet";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname); 
-
-if (!$conn) {
-
-die("Connection failed: " . mysqli_connect_error()); 
-
- }
-
+include_once 'include/dbconnect.php';
 
  $sql="select Distinct Type from Filenames order by Type ASC";
  $result=mysqli_query($conn, $sql);

@@ -1,10 +1,6 @@
 <?php
  error_reporting(E_ERROR | E_PARSE);
-  $servername = "localhost";
-$username = "your_username";
-$password = "password";
-$dbname="Intranet";
-$conn = new mysqli($servername, $username, $password, $dbname);
+include_once '../include/dbconnect.php';
 $test=$_POST['paths'];
 $opts=array();
 foreach ($test as $path)

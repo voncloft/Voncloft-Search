@@ -1,11 +1,5 @@
 <?php
-$location=$_POST["location"];
-$servername = "localhost";
-$username = "your_user_name";
-$password = "password";
-$dbname="Intranet";
-$conn = new mysqli($servername, $username, $password, $dbname);
-
+include_once '../include/dbconnect.php'
 if (mysqli_connect_errno())
 {
   trigger_error('Database connection failed: ');

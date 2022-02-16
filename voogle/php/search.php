@@ -12,7 +12,7 @@
     function init() { 
    var aud=document.getElementsByTagName('audio');
     for(var c=0;c<aud.length;c++) {
-      aud[c].volume=0.1;      
+      aud[c].volume=0.7;      
     }
     
  }
@@ -30,16 +30,11 @@ function myFunction() {
 
 set_time_limit(0);
 session_start();
-
+include_once '../include/dbconnect.php';
 $firsttime=$_SESSION["start"];
 $page=$_GET['page'];
-$servername = "localhost";
-$username = "your_username";
-$password = "password";
-$dbname = "Intranet";
 error_reporting(E_ERROR | E_PARSE);
  $_SESSION["user"]=1;
-   $conn = mysqli_connect($servername, $username, $password, $dbname);
      $keyword_fsql="select value from special where expression = 'keywords'";
   $keyword_fexec=mysqli_query($conn,$keyword_fsql);
   $keyword_f=mysqli_fetch_array($keyword_fexec);
@@ -188,6 +183,8 @@ while ($row = mysqli_fetch_array($result))
         $url=str_replace("-", "%2D", $url);
         $url=str_replace(" ", "%20", $url);
         $file2=str_replace("http://192.168.1.1:90/all","",$row["location"]);
+	$file2=str_replace("http://voncloft.com:90/all","",$row["location"]);
+	//$file2=$row["location"];
         //$reformated="'".$row["location"]."'";
         //list($width, $height) = getimagesize($row["location"]);
         list($width, $height) = getimagesize($url);
@@ -244,6 +241,8 @@ while ($row = mysqli_fetch_array($result))
         $url=str_replace("-", "%2D", $url);
         $url=str_replace(" ", "%20", $url);
         $file2=str_replace("http://192.168.1.1:90/all","",$row["location"]);
+        echo "You are here";
+	$file2=str_replace("http://voncloft.com:90/all","",$row["location"]);
         //echo $file2;        
         if($row["Type"]=="text" || $row["Type"]=="command")
         {
@@ -251,13 +250,6 @@ while ($row = mysqli_fetch_array($result))
 
             echo "<table><tr class='header'><td>".$id." - ".ucfirst($row["Type"])." File - ".formatSize($row["sizeinbytes"])."</td></tr><tr class='filename'><td><a target='_blank' a href='".$url."'>".$row["filename"]."</a></td></tr><tr class='grep'><td>".substr($row["description"],$j,100)."</td></tr><tr class='url'><td>".$row["location"]."</td></tr></tr><tr><td>Date last modified ".date("F d Y H:i:s.", filemtime($file2))."</td></tr></table><br>";
         }
-        elseif($row["Type"]=="recipe")
-         {
-        //$count = $row[0];
-
-            echo "<table><tr class='header'><td>".$id." - ".ucfirst($row["Type"])." File - ".formatSize($row["sizeinbytes"])."</td></tr><tr class='filename'><td><a target='_blank' a href='".$url."'>".$row["filename"]."</a></td></tr><tr ><td>".substr($row["description"],$j,1000)."</td></tr><tr class='url'><td>".$row["location"]."</td></tr></tr><tr><td>Date last modified ".date("F d Y H:i:s.", filemtime($file2))."</td></tr></table><br>";
-        }       
-        
         elseif($row["Type"]=="audio")
         {
         echo "<table><tr class='header'><td>".$id." - ".ucfirst($row["Type"])." File - ".formatSize($row["sizeinbytes"])."</td></tr>";
@@ -265,6 +257,7 @@ while ($row = mysqli_fetch_array($result))
 //echo "<tr><td><audio controls><source src='".$_SESSION['files'][$a]." type='audio/mpeg'></audio></td></tr>";
         echo '<tr><td><span id="mySpan"></span><audio preload=auto id="sound" controls onseeking="myFunction()" onseeked="myFunction()"><source src="'.$url.'"type="audio/mpeg"></audio></td></tr>';
         echo "<tr class='url'><td>".$url."</tr></td><tr><td>Date last modified ".date("F d Y H:i:s.", filemtime($file2))."</td></tr></table><br>";
+	//echo $file2;
         }
         elseif(in_array($row["Type"],$_SESSION['ifarray'],true))
         {

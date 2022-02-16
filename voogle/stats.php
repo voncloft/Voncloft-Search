@@ -1,12 +1,6 @@
 <?php
-$servername = "localhost";
-$username = "your_username";
-$password = "password";
-$dbname = "Intranet";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname); 
+include_once 'include/dbconnect.php';
 include "include/libchart/classes/libchart.php";
-if (!$conn) {die("Connection failed: " . mysqli_connect_error()); }
 echo "<center><table border = 2><tr><td>";
 echo "<table border = 2 height = '550px'><tr><td>";
 $sql="Select count(*) as num,Type from Filenames group by Type order by count(*) DESC;";
