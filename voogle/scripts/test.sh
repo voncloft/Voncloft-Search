@@ -1,4 +1,5 @@
 #This is the script that starts everything for the search engine, it is a "spider"
+source /etc/voogle.conf
 sh ./build_index.sh
 rm -rf ./woot2.txt
 echo "use Intranet;" >> woot2.txt
@@ -99,7 +100,7 @@ echo "update Filenames set Type='video' where Filename like '%.webm';" >> woot2.
 echo "delete from Filenames where location like '%*%';" >> woot2.txt;
 echo "Insert into Updates(date) VALUES ('$(date)');" >>  woot2.txt
 
-mysql -uyour_username -ppassword -f < ./woot2.txt
+mysql -u${username} -p${password} -f < ./woot2.txt
 
 echo "Database successfully updated at: $(date)" >> /var/log/my_scripts/voogle_search_index.log
 #echo "Database successfully updated at: $(date)" >> /var/log/my_scripts/$(date +%m-%d-%Y)/$(date +%H)/voogle_search_index.log

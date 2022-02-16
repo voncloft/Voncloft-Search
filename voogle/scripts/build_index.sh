@@ -1,9 +1,10 @@
 # This will build a spider "backbone" of directories to search. It will only scan subfolders
 IFS=$'\n'
+source /etc/voogle.conf
 rm -rf ./files.txt
 
 
-myvariable="$(mysql  -DIntranet -uyour_username -ppassword -se 'SELECT path FROM Default_Locations')"
+myvariable="$(mysql  -DIntranet -u${ussername} -p${password} -se 'SELECT path FROM Default_Locations')"
 
 for i in "${myvariable[@]}";
 do

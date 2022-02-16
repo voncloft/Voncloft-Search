@@ -6,11 +6,12 @@ A LAMP search engine for server or desktop.
 
 run mysql_script_update to create database 
 
-mysql -u yourusername -p yourpassword yourdatabase < mysql_script_update
+mysql -uyourusername -pyourpassword Intranet < mysql_script_update
 
 (for simplicity sakes you can have a username of your_username and a password of password to get this going)
 
-change username and passwrods in the php scripts to your mysql criteria on your rig
+change username and passwrods in the voogle/include/dbconnect.php to your mysql criteria on your rig
+put voogle/new-scripts/voogle.conf to /etc/voogle.conf - change the information you need
 
 Add locations in your mysql table provided after the script was ran.
 
