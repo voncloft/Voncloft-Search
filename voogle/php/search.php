@@ -149,7 +149,8 @@ function formatSize( $bytes )
                 return( round( $bytes, 2 ) . " " . $types[$i] );
 }
 
-$z=sizeof($_SESSION['files']);
+//$z=sizeof($_SESSION['files']);
+$z=count((array)$_SESSION['files']);
 //echo $sql; 
 $count=mysqli_num_rows($counts);
 if(in_array($_SESSION["type"],$_SESSION['ifarray'],true))
@@ -182,8 +183,17 @@ while ($row = mysqli_fetch_array($result))
         $url=str_replace(")", "%29", $url);
         $url=str_replace("-", "%2D", $url);
         $url=str_replace(" ", "%20", $url);
-        $file2=str_replace("http://192.168.1.1:90/all","",$row["location"]);
-	$file2=str_replace("http://voncloft.com:90/all","",$row["location"]);
+        if (str_contains($url2, '192.168.1.1'))
+        {
+                $file2=str_replace("http://192.168.1.1:90/all","",$row["location"]);
+        }
+        else
+        {
+                $file2=str_replace("http://voncloft.com:90/all","",$row["location"]);
+        }
+
+        //$file2=str_replace("http://192.168.1.1:90/all","",$row["location"]);
+	//$file2=str_replace("http://voncloft.com:90/all","",$row["location"]);
 	//$file2=$row["location"];
         //$reformated="'".$row["location"]."'";
         //list($width, $height) = getimagesize($row["location"]);
@@ -240,10 +250,14 @@ while ($row = mysqli_fetch_array($result))
         $url=str_replace(")", "%29", $url);
         $url=str_replace("-", "%2D", $url);
         $url=str_replace(" ", "%20", $url);
-        $file2=str_replace("http://192.168.1.1:90/all","",$row["location"]);
-        //echo "You are here";
-	$file2=str_replace("http://voncloft.com:90/all","",$row["location"]);
-        //echo $file2;        
+	if (str_contains($url2, '192.168.1.1'))
+	{
+        	$file2=str_replace("http://192.168.1.1:90/all","",$row["location"]);
+	}
+	else
+	{
+		$file2=str_replace("http://voncloft.com:90/all","",$row["location"]);
+	}
         if($row["Type"]=="text" || $row["Type"]=="command")
         {
         //$count = $row[0];
