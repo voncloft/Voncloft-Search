@@ -241,7 +241,7 @@ while ($row = mysqli_fetch_array($result))
         $url=str_replace("-", "%2D", $url);
         $url=str_replace(" ", "%20", $url);
         $file2=str_replace("http://192.168.1.1:90/all","",$row["location"]);
-        echo "You are here";
+        //echo "You are here";
 	$file2=str_replace("http://voncloft.com:90/all","",$row["location"]);
         //echo $file2;        
         if($row["Type"]=="text" || $row["Type"]=="command")
