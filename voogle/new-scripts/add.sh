@@ -6,8 +6,8 @@ location="$new_file"
 extension="${filename##*.}"
 final_mysql_location="$mysql_path_pre$location"
 #echo "Size" $sizeinbytes >> /var/log/search_engine_events
-if [ ! -d $1 ];then
-sizeinbytes=$(du -k "$1" | cut -f1)
+if [[ ! -d $1 ]];then
+sizeinbytes=$(du -b "$1" | cut -f1)
 case $extension in
 	txt)
 		mysql_ext="text"
