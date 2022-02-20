@@ -14,7 +14,7 @@ do
 	do
 		sh /media/Websites/voogle/new-scripts/delete.sh ${NEWFILE}
 	done &
-	inotifywait -m -r -e move --format "%e,%w%f" ${p} |  while read evt file;
+	inotifywait -m -r -e move --format "%e,%w%f" "${p}" |  while read evt file;
 	do
     	echo "Event: $evt, Dir: $dir File: $file"
 
@@ -23,7 +23,6 @@ do
     	elif [[ $evt == "MOVED_TO" ]];then
         	new_file="$file"
         	sh /media/Websites/voogle/new-scripts/update.sh "$original_file" "$new_file"
-		#echo "update Filenames set location='$new_file' where location = '$original_file'"
     	fi
 	done &
 done
