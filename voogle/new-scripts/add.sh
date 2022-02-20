@@ -1,12 +1,13 @@
 source /etc/voogle.conf
-
-new_file=$1
+#echo "${1}" >> /var/log/search_engine_events
+new_file="$1"
 filename=$(basename "${new_file}")
 location="$new_file"
 extension="${filename##*.}"
 final_mysql_location="$mysql_path_pre$location"
-sizeinbytes=$(du -k "$1" | cut -f1)
 #echo "Size" $sizeinbytes >> /var/log/search_engine_events
+if [ ! -d $1 ];then
+sizeinbytes=$(du -k "$1" | cut -f1)
 case $extension in
 	txt)
 		mysql_ext="text"
@@ -32,6 +33,9 @@ case $extension in
 	*)
 		mysql_ext="misc"
 esac
+else
+	sizeinbytes=0
+fi
 #echo $mysql_ext
 #echo $final_mysql_location
 command="insert into Filenames(filename,location,type,description,sizeinbytes) Values ('${filename}','${final_mysql_location}','${mysql_ext}','NEW','${sizeinbytes}')"
