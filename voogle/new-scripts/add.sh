@@ -25,11 +25,14 @@ echo "Extension"$extension >>  /var/log/search_engine_events
 	*.php)
 		mysql_ext="php"
 		;;
-	*.log)
+	*.log|*.log*)
 		mysql_ext="log"
 		;;
-	*)
+	*.*)
 		mysql_ext="misc"
+		;;
+	*)
+		mysql_ext="directory"
 		sizeinbytes="0"
 		;;
 
