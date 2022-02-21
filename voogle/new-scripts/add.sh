@@ -23,11 +23,14 @@ case $filename in
 	*.php)
 		mysql_ext="php"
 		;;
-	*.log|*.log*)
+	*.log|*.log.*)
 		mysql_ext="log"
 		;;
-	*.*)
-		mysql_ext="misc"
+	SPKGBUILD)
+		mysql_ext="spkgbuild"
+		;;
+	CHANGELOG)
+		mysql_ext="CHANGELOG"
 		;;
 	*)
 		mysql_ext="directory"

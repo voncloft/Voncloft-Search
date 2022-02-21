@@ -3,7 +3,6 @@ mysql_path_pre="http://voncloft.com:90/all"
 final_mysql_location=$mysql_path_pre$1
 new_file=$(echo $2 | sed "s/ISDIR\,//g")
 old_file=$(echo $1 | sed "s/ISDIR\,//g")
-echo $folder_check >> /var/log/search_engine_events
 filename=$(basename "${new_file}")
 location="$new_file"
 extension="${filename##*.}"
