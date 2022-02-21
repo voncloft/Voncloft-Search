@@ -1,12 +1,10 @@
 source /etc/voogle.conf
-echo "path: ${1}" >> /var/log/search_engine_events
 new_file="$1"
 filename=$(basename "${new_file}")
 location="$new_file"
 final_mysql_location="$mysql_path_pre$location"
 sizeinbytes=$(du -b "$1" | cut -f1)
-echo "Extension"$extension >>  /var/log/search_engine_events
-	case $filename in
+case $filename in
 	*.txt)
 		mysql_ext="text"
 		;;
@@ -35,10 +33,7 @@ echo "Extension"$extension >>  /var/log/search_engine_events
 		mysql_ext="directory"
 		sizeinbytes="0"
 		;;
-
-	esac
-#echo $mysql_ext
-#echo $final_mysql_location
+esac
 command="insert into Filenames(filename,location,type,description,sizeinbytes) Values ('${filename}','${final_mysql_location}','${mysql_ext}','NEW','${sizeinbytes}')"
 echo $command
 mysql -u${username} -p${password} --database="Intranet" --execute="$command;"
