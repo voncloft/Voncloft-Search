@@ -1,39 +1,38 @@
 source /etc/voogle.conf
-#echo "${1}" >> /var/log/search_engine_events
-new_file=$1
+echo "path: ${1}" >> /var/log/search_engine_events
+new_file="$1"
 filename=$(basename "${new_file}")
 location="$new_file"
-extension="${filename##*.}"
 final_mysql_location="$mysql_path_pre$location"
-#echo "Size" $sizeinbytes >> /var/log/search_engine_events
 sizeinbytes=$(du -b "$1" | cut -f1)
 echo "Extension"$extension >>  /var/log/search_engine_events
-	case $extension in
-	txt)
+	case $filename in
+	*.txt)
 		mysql_ext="text"
 		;;
-	mp3)
+	*.mp3)
 		mysql_ext="audio"
 		;;
-	mkv|mp4|avi)
+	*.mkv|*.mp4|*.avi)
 		mysql_ext="video"
 		;;
-	html)
+	*.html)
 		mysql_ext="hypertext"
 		;;
-	sh)
+	*.sh)
 		mysql_ext="shell"
 		;;
-	php)
+	*.php)
 		mysql_ext="php"
 		;;
-	log)
+	*.log)
 		mysql_ext="log"
 		;;
 	*)
 		mysql_ext="misc"
 		sizeinbytes="0"
 		;;
+
 	esac
 #echo $mysql_ext
 #echo $final_mysql_location
