@@ -7,7 +7,8 @@ extension="${filename##*.}"
 final_mysql_location="$mysql_path_pre$location"
 #echo "Size" $sizeinbytes >> /var/log/search_engine_events
 sizeinbytes=$(du -b "$1" | cut -f1)
-case $extension in
+echo "Extension"$extension >>  /var/log/search_engine_events
+	case $extension in
 	txt)
 		mysql_ext="text"
 		;;
@@ -31,8 +32,9 @@ case $extension in
 		;;
 	*)
 		mysql_ext="misc"
-		#sizeinbytes="0"
-esac
+		sizeinbytes="0"
+		;;
+	esac
 #echo $mysql_ext
 #echo $final_mysql_location
 command="insert into Filenames(filename,location,type,description,sizeinbytes) Values ('${filename}','${final_mysql_location}','${mysql_ext}','NEW','${sizeinbytes}')"
