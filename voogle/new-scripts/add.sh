@@ -37,5 +37,5 @@ esac
 command="insert into Filenames(filename,location,type,description,sizeinbytes) Values ('${filename}','${final_mysql_location}','${mysql_ext}','NEW','${sizeinbytes}')"
 echo $command
 mysql -u${username} -p${password} --database="Intranet" --execute="$command;"
-echo "added $final_mysql_location to database" >> /var/log/search_engine_events
-echo "$command" >> /var/log/search_engine_events
+echo "added $final_mysql_location to database" >> /var/log/search_engine_events.log
+echo "$command" >> /var/log/search_engine_events.log

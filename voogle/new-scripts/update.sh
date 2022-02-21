@@ -13,6 +13,6 @@ if [[ ! -z $1 ]];then
 		
 	echo $command
 	mysql -u${username} -p${password} --database="Intranet" --execute="$command;"
-	echo "$1 updated final location" >>  /var/log/search_engine_events
-	echo "$command" >> /var/log/search_engine_events
-	fi
+	echo "$1 updated final location" >>  /var/log/search_engine_events.log
+	echo "$command" >> /var/log/search_engine_events.log
+fi
