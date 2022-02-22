@@ -90,7 +90,8 @@ echo "Last update was: ".$final[0];
 //echo "<pre>$output</pre>";
 echo "<br><a href=stats.php>Database Statistics</a>";
 echo "<br><a href=search_stats.php>Search Statistics</a>";
-echo "<br><br>Version 3<br>Last Update Applied: 02-11-2019 08:50:00 PM";
+echo "<br><br>Version 3<br>Last Update Applied: 02-22-2022 08:16:00 AM";
+echo "<br>Hint: To further lock down searches you can do this: actual_file_name%' and field like '%term"
 ?>
 </center>
 </body>
