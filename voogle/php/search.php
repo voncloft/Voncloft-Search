@@ -34,6 +34,7 @@ include_once '../include/dbconnect.php';
 $firsttime=$_SESSION["start"];
 $page=$_GET['page'];
 error_reporting(E_ERROR | E_PARSE);
+//error_reporting(E_ALL);
  $_SESSION["user"]=1;
      $keyword_fsql="select value from special where expression = 'keywords'";
   $keyword_fexec=mysqli_query($conn,$keyword_fsql);
@@ -59,10 +60,11 @@ $type=$_POST["type"];
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
+    //echo $search_history;
   }
-  $search_history="Insert into Search_History(Search_query) Values ('".$conditions."')";
+  $search_history="Insert into Search_History(Search_query) Values (\"$conditions\")";
   mysqli_query($conn,$search_history);
-    
+  echo $search_history."<br>";  
 
   //echo $_SESSION['kfarray'];
     // Check connection
@@ -86,6 +88,7 @@ if (!$conn) {
     $_SESSION["terms"]="where (filename like '%".$conditions."%' or description like '%".$conditions."%' or location like '%$conditions%')".$_SESSION["additional"];
   }
   $_SESSION["sql3"] = "SELECT * FROM Filenames ".$_SESSION["terms"];
+   //echo $_SESSION["terms"];
   $_SESSION["start"]="1";
   $_SESSION["type"]=$type;
   $_SESSION["contains"]=$conditions;
