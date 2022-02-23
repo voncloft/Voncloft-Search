@@ -97,8 +97,9 @@ if ($history_search != "1")
 else
 {
 	//echo "you are here";
+	$_SESSION["sql3"] = "";
 	$new_search=$_GET['newsql'];
- 	$_SESSION["sql3"] = "SELECT * FROM Filenames where filename like '%".$new_search."%'";
+ 	$_SESSION["sql3"] = "SELECT * FROM Filenames where filename like '%".$_GET['newsql']."%'";
 }
   	$_SESSION["start"]="1";
   	$_SESSION["type"]=$type;
