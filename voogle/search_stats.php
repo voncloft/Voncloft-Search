@@ -23,12 +23,15 @@ $result = mysqli_query($conn, $sql);
 $rowcount=mysqli_num_rows($result);
 echo "Total Records</td><td>";
 echo $rowcount."</td></tr>";
-
-for ($c=1;$c<=$i;$c++)
-{
-echo "<tr><td>".ucwords($values[$c])."</td><td>";
-echo $rows[$c]."</td></tr>";
-}
-
+?>
+<form action="php/search.php?page=0" method="post">
+<?php
+	for ($c=1;$c<=$i;$c++)
+	{
+		//echo "<tr><td><a href='".ucwords($values[$c])."'>".ucwords($values[$c])."</a></td><td>";
+		echo "<tr><td><a href='php/search.php?page=0&history=1&newsql=".ucwords($values[$c])."'>".ucwords($values[$c])."</a></td><td>";
+		echo $rows[$c]."</td></tr>";
+	}
 echo "</table>";
 ?>
+</form>

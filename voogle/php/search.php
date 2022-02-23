@@ -27,14 +27,19 @@ function myFunction() {
 <?php
 
 
-
 set_time_limit(0);
 session_start();
+
+//error_reporting(E_ERROR | E_PARSE);
+//error_reporting(0);
+
 include_once '../include/dbconnect.php';
 $firsttime=$_SESSION["start"];
 $page=$_GET['page'];
-error_reporting(E_ERROR | E_PARSE);
-//error_reporting(E_ALL);
+error_reporting(0);
+$history_search=$_GET['history'];
+  //echo $history_search;
+//error_reporting(0);
  $_SESSION["user"]=1;
      $keyword_fsql="select value from special where expression = 'keywords'";
   $keyword_fexec=mysqli_query($conn,$keyword_fsql);
@@ -64,41 +69,45 @@ if (!$conn) {
   }
   $search_history="Insert into Search_History(Search_query) Values (\"$conditions\")";
   mysqli_query($conn,$search_history);
-  echo $search_history."<br>";  
+  //echo $search_history."<br><br>";  
 
   //echo $_SESSION['kfarray'];
     // Check connection
-
-  if ($type == "Any")
-  {
-    $_SESSION["additional"]="order by filename ASC";
-  }
-  else
-  {
-    //echo "testing";
-    $_SESSION["additional"]=" and type = '".$type."' order by filename ASC";
-  }
-
-  if ($what == "Is Exactly")
-  {
-    $_SESSION["terms"]="where filename = '".$conditions.$additional."'";
-  }
-  else
-  {
-    $_SESSION["terms"]="where (filename like '%".$conditions."%' or description like '%".$conditions."%' or location like '%$conditions%')".$_SESSION["additional"];
-  }
-  $_SESSION["sql3"] = "SELECT * FROM Filenames ".$_SESSION["terms"];
-   //echo $_SESSION["terms"];
-  $_SESSION["start"]="1";
-  $_SESSION["type"]=$type;
-  $_SESSION["contains"]=$conditions;
-  
-    $image_fsql="select value from special where expression = 'image'";
-  $image_fexec=mysqli_query($conn,$image_fsql);
-  $image_f=mysqli_fetch_array($image_fexec);
-  $image_families=$image_f[0];
-  
-  $_SESSION['ifarray']=explode(' ',$image_families);
+if ($history_search != "1")
+{
+	if ($type == "Any")
+  	{
+    		$_SESSION["additional"]="order by filename ASC";
+  	}
+  	else
+  	{
+    		//echo "testing";
+    		$_SESSION["additional"]=" and type = '".$type."' order by filename ASC";
+  	}
+	if ($what == "Is Exactly")
+  	{
+    		$_SESSION["terms"]="where filename = '".$conditions.$additional."'";
+  	}
+  	else
+  	{
+    		$_SESSION["terms"]="where (filename like '%".$conditions."%' or description like '%".$conditions."%' or location like '%$conditions%')".$_SESSION["additional"];
+  	}
+  	$_SESSION["sql3"] = "SELECT * FROM Filenames ".$_SESSION["terms"];
+ }
+else
+{
+	//echo "you are here";
+	$new_search=$_GET['newsql'];
+ 	$_SESSION["sql3"] = "SELECT * FROM Filenames where filename like '%".$new_search."%'";
+}
+  	$_SESSION["start"]="1";
+  	$_SESSION["type"]=$type;
+  	$_SESSION["contains"]=$conditions;
+    	$image_fsql="select value from special where expression = 'image'";
+  	$image_fexec=mysqli_query($conn,$image_fsql);
+  	$image_f=mysqli_fetch_array($image_fexec);
+  	$image_families=$image_f[0];
+  	$_SESSION['ifarray']=explode(' ',$image_families);
 
 
 }
