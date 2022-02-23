@@ -1,5 +1,6 @@
 <?php
 include_once 'include/dbconnect.php';
+session_start();
 if (!$conn) {
 die("Connection failed: " . mysqli_connect_error()); 
 }
@@ -29,9 +30,12 @@ echo $rowcount."</td></tr>";
 	for ($c=1;$c<=$i;$c++)
 	{
 		//echo "<tr><td><a href='".ucwords($values[$c])."'>".ucwords($values[$c])."</a></td><td>";
-		echo "<tr><td><a href='php/search.php?page=0&history=1&newsql=".ucwords($values[$c])."'>".ucwords($values[$c])."</a></td><td>";
+		//echo "<tr><td><a href=search_stats.php?history=0&newsql=''>Back</a></td>";
+		echo "<td><a href='php/search.php?page=0&history=1&newsql=".ucwords($values[$c])."'>".ucwords($values[$c])."</a></td><td>";
 		echo $rows[$c]."</td></tr>";
 	}
 echo "</table>";
+$_SESSION["start"] = "0";
+
 ?>
 </form>
