@@ -51,7 +51,7 @@ do
 		#echo $fullpath
 		#rootpath=unrelated
 		FILESIZE=$(stat -c%s "$file")
-		suba="Insert into Filenames(filename,location,type,description,sizeinbytes) VALUES ($easylook,http://192.168.1.1/all$file,$types,$three,$FILESIZE);"
+		suba="Insert into Filenames(filename,location,type,description,sizeinbytes) VALUES ($easylook,http://192.168.1.1:90/all$file,$types,$three,$FILESIZE);"
 		#echo $suba
 		echo $suba | sed s/"'"/"''"/g | sed s/"VALUES ("/"VALUES ('"/g | sed s/");"/"');/"g | sed s/","/"','"/g | sed s/"Filenames(filename','location','type','description','sizeinbytes)"/"Filenames(filename,location,type,description,sizeinbytes)"/g >> woot2.txt
 		#echo $suba | "sed s/'/''/g | sed s/VALUES (/VALUES ('/g | sed s/);/');/g | sed s/,/','/g | sed s/Filenames)filename','location','type)/Filenames(filename,location,type)/g" >> woot2.txt
