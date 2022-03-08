@@ -4,7 +4,7 @@ source /etc/voogle.conf
 rm -rf ./files.txt
 
 
-myvariable="$(mysql  -DIntranet -u${ussername} -p${password} -se 'SELECT path FROM Default_Locations')"
+myvariable="$(mysql  -DIntranet -u${username} -p${password} -se 'SELECT path FROM Default_Locations')"
 
 for i in "${myvariable[@]}";
 do
