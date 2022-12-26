@@ -1,6 +1,6 @@
  <?php
  error_reporting(E_ERROR | E_PARSE);
-include_once 'include/dbconnect.php';
+include_once '../include/dbconnect.php';
 $sql="Select * from Default_Locations";
 $result=mysqli_query($conn, $sql);
      $id=array();

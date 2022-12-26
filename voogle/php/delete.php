@@ -24,15 +24,15 @@ for($z=1;$z<=$a;$z++)
 }
 $result = $sql .= $strings .= ";";
 //echo $result;
-$command=mysqli_query($conn, $sql);
-if(!command)
+$command=mysqli_query($conn, $result);
+/*if(!command)
 {
   echo "Error Occured";
 }
 else
 {
   echo "Values have been deleted";
-}
+}*/
 echo "<br>";
 echo "<a href='../html/configuration.html'>Back</a>"
 ?>
